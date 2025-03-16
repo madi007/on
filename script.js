@@ -222,10 +222,3 @@ document.addEventListener("DOMContentLoaded", () => {
       return /^\d{7}$/.test(text.trim());
     }
   });
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('SW зарегистрирован'))
-      .catch(err => console.log('Ошибка регистрации SW', err));
-  }
-  
