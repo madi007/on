@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    border: transparent;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* 🚫 Отключаем скролл страницы */
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .chat-container {
+    width: 100%;
+    max-width: 500px;
+    height: 100dvh; /* 100% экрана */
+    background-color: #121212;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: #2a2a2a;
+  padding: 12px;
+  color: white;
+ }
+
+ .spacer {
+  flex: 1;
+ }
+  
+ #mainHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2a2a2a;
+    padding: 12px;
+  }
+  
+  .left-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 👉 между фото и текстом будет 15px */
+  }
+  
+  .chat-title {
+    font-size: 18px; /* 👉 размер побольше */
+    font-weight: bold;
+    color: white; /* 👉 белый цвет */
+  }
+  
+  #menuBtn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #menuBtn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #333;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+  }
+  
+  .dropdown button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .dropdown button:hover {
+    background-color: #444;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  .chat-area {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto; /* ✅ Только тут будет скролл */
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+  }
+  
+  .chat-area::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    flex-shrink: 0; /* 🚫 фиксированная высота */
+  }
+  
+  #input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #2e2e2e;
+    color: white;
+    font-size: 14px;
+  }
+  
+  #sendBtn {
+    margin-left: 10px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3687ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .message-row {
+    display: flex;
+    align-items: flex-end;
+    margin: 6px 1px;
+    max-width: 100%;
+  }
+  
+  .message-time {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0 6px;
+    align-self: flex-end;
+    white-space: nowrap;
+  }
+  
+  .message-bubble {
+    display: inline-block;
+    max-width: 80%;
+  }
+  
+  .message a {
+    white-space: nowrap;
+    overflow-wrap: break-word;
+  }
+  
+  .message {
+    padding: 10px 14px;
+    border-radius: 16px;
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.4;
+    display: inline-block;
+  }
+  
+  .from-user {
+    background-color: #00000000;
+    color: white;
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
+  
+  .from-user .message {
+    background-color: #007bff;
+    color: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .from-user .message-bubble {
+    margin-left: auto;
+  }
+  
+  .from-system {
+    background-color: #00000000;
+    color: white;
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .from-system .message {
+    background-color: #333;
+    color: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 16px;
+  }
+  
+  .from-system .message-bubble {
+    margin-right: auto;
+  }
+  
+  .date-divider {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin: 15px 0 5px;
+  }
+  
+  .danger {
+    background-color: #c0392b;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .selected {
+    background-color: #6c6c6c !important;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    #sendBtn {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+  
+    #input {
+      font-size: 13px;
+    }
+  
+    .chat-container {
+      border-radius: 0;
+    }
+  }
+  
