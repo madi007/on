@@ -246,6 +246,10 @@
     background-color: #6c6c6c !important;
     border-radius: 10px;
   }
+
+  img {
+  pointer-events: none;
+  }
   
   @media (max-width: 480px) {
     #sendBtn {
